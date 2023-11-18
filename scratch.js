@@ -33,4 +33,20 @@ function product(nums) {
 nums = [1, [2, [3], 4], 5]
 
 const prod = product([1, 2, 3, 4])
-console.log(prod)
+// console.log(prod)
+
+
+function isPalindrome(str) {
+    if (str.length === 0 || str.length === 1) {
+      return true
+    }
+    if (str.slice(0, 1) !== str.slice(str.length - 1,)) {
+      return false
+    }
+    if (str.slice(0, 1) === str.slice(str.length -1,)) {
+      return isPalindrome(str.slice(1, str.length -1))
+    }
+  }
+
+const word = "racecar"
+console.log(isPalindrome(word))
