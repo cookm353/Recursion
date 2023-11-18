@@ -48,6 +48,15 @@ function findIndex(arr, val) {
   if (arr.length === 0) {
     return -1
   }
+
+  if (arr[0] === val) {
+    return 0
+  }
+
+  const idx = findIndex(arr.slice(1,), val)
+
+  if (idx === -1) return -1
+  else return 1 + findIndex(arr.slice(1,), val)
 }
 
 /** revString: return a copy of a string, but in reverse. */
@@ -70,7 +79,10 @@ function gatherStrings(obj) {
  * return the index of that value (or -1 if val is not present). */
 
 function binarySearch(arr, val) {
+  const low = 0
+  const high = arr.length - 1
 
+  const mid = Math.floor(low + (high - low) / 2)
 }
 
 module.exports = {
