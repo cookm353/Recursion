@@ -49,4 +49,23 @@ function isPalindrome(str) {
   }
 
 const word = "racecar"
-console.log(isPalindrome(word))
+// console.log(isPalindrome(word))
+
+function findIndex(arr, val) {
+  if (arr.length === 1 && arr[0] !== val) {
+    return -1
+  }
+
+  if (arr[0] === val) {
+    return 0
+  }
+
+  const result = findIndex(arr.slice(1,), val)
+  if (result === -1) return -1
+  else return 1 + findIndex(arr.slice(1,), val)
+}
+
+const arr = [0, 1, 2, 3, 4, 5]
+console.log(findIndex(arr, 6))
+
+
