@@ -65,7 +65,27 @@ function findIndex(arr, val) {
   else return 1 + findIndex(arr.slice(1,), val)
 }
 
-const arr = [0, 1, 2, 3, 4, 5]
+let arr = [0, 1, 2, 3, 4, 5]
 console.log(findIndex(arr, 6))
 
 
+function binarySearch(arr, val) {  
+  let low = 0
+  let high = arr.length - 1
+  if (low === high) return -1
+  const mid = Math.floor(low + (high - low) / 2)
+
+  console.log(`low: ${arr[low]}, mid: ${arr[mid]}, high: ${arr[high]}`)
+  if (arr[mid] === val) {
+    return mid
+  } else if (arr[mid] < val) {
+    return binarySearch(arr.slice(mid, high+1), val)
+  } else if (arr[mid] > val) {
+    return binarySearch(arr.slice(low, mid+1), val)
+  }
+
+}
+
+arr = [1, 3, 6, 8, 12, 15, 18, 19, 27]
+const result = binarySearch(arr, 8)
+console.log(result)
